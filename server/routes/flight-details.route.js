@@ -14,7 +14,7 @@ const {
 router.get("/", getFlightDetails);
 router.get("/:id", getFlightDetailsById);
 router.post("/", createFlightDetails);
-router.update("/:id", updateFlightDetails);
+router.put("/:id", updateFlightDetails);
 router.delete("/:id", deleteFlightDetails);
 
 module.exports = router;

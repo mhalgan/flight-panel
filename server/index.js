@@ -32,5 +32,5 @@ db.connect()
     });
   })
   .catch(function(error) {
-    logger.error(error);
+    console.error(error);
   });
