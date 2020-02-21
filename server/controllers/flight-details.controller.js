@@ -1,30 +1,24 @@
 const flightDetailsModel = require("../models/flight-details.model");
 
-const createFlightDetails = async (req, res) => {
+const createFlightDetails = async (req, res, next) => {
   try {
     let flightDetails = await flightDetailsModel.create(req.body);
     return res.status(201).json(flightDetails);
   } catch (error) {
-    if (error.name == "ValidationError") {
-      return res.status(422).json({ error: error.message });
-    } else {
-      console.error(error.message);
-      return res.status(500).json();
-    }
+    next(error);
   }
 };
 
-const getFlightDetails = async (req, res) => {
+const getFlightDetails = async (req, res, next) => {
   try {
     let flightDetailsList = await flightDetailsModel.find({});
     return res.status(200).json(flightDetailsList);
   } catch (error) {
-    console.error(error.message);
-    return res.status(500).json();
+    next(error);
   }
 };
 
-const getFlightDetailsById = async (req, res) => {
+const getFlightDetailsById = async (req, res, next) => {
   try {
     let id = req.params.id;
     let flightDetails = await flightDetailsModel.findById(id);
@@ -36,27 +30,31 @@ const getFlightDetailsById = async (req, res) => {
     // flight-details not found
     return res.status(404).json();
   } catch (error) {
-    if (error.name == "CastError") {
-      return res.status(404).json();
-    }
-    console.error(error.message);
-    return res.status(500).json();
+    next(error);
   }
 };
 
-const updateFlightDetails = async (req, res) => {
-  let id = req.params.id;
+const updateFlightDetails = async (req, res, next) => {
+  try {
+    let id = req.params.id;
 
-  let flightDetails = await flightDetailsModel.findByIdAndUpdate(id, req.body, {
-    useFindAndModify: false,
-    new: true,
-    runValidators: true
-  });
+    let flightDetails = await flightDetailsModel.findByIdAndUpdate(
+      id,
+      req.body,
+      {
+        useFindAndModify: false,
+        new: true,
+        runValidators: true
+      }
+    );
 
-  return res.status(200).json(flightDetails);
+    return res.status(200).json(flightDetails);
+  } catch (error) {
+    next(error);
+  }
 };
 
-const deleteFlightDetails = async (req, res) => {
+const deleteFlightDetails = async (req, res, next) => {
   try {
     let id = req.params.id;
     let flightDetails = await flightDetailsModel.findByIdAndRemove(id, {
@@ -69,11 +67,7 @@ const deleteFlightDetails = async (req, res) => {
     // flight-details not found
     return res.status(404).json();
   } catch (error) {
-    if (error.name == "CastError") {
-      return res.status(404).json();
-    }
-    console.error(error.message);
-    return res.status(500).json();
+    next(error);
   }
 };
 

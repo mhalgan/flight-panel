@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 
+const errorHandler = require('./middlewares/error-handler.middle')
 const routes = require("./routes");
 const config = require("./config");
 const db = require("./db");
@@ -24,6 +25,9 @@ app.use(
 
 // add routing
 app.use("/api", routes);
+
+// add the error handler after the routes
+app.use(errorHandler)
 
 db.connect()
   .then(function() {
