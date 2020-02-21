@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -5,6 +7,7 @@ const helmet = require("helmet");
 
 const routes = require("./routes");
 const config = require("./config");
+const db = require("./db");
 
 const app = express();
 const port = process.env.PORT || config.port;
@@ -20,8 +23,14 @@ app.use(
 );
 
 // add routing
-app.use(routes);
+app.use("/api", routes);
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+db.connect()
+  .then(function() {
+    app.listen(port, () => {
+      console.log(`Server listening on port ${port}`);
+    });
+  })
+  .catch(function(error) {
+    logger.error(error);
+  });

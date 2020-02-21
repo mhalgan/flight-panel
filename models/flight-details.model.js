@@ -35,4 +35,4 @@ let FlightDetails = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("FlightDetails", FlightDetails);
+module.exports = mongoose.model("flight-details", FlightDetails);
