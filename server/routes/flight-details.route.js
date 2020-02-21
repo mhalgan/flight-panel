@@ -12,6 +12,9 @@ const {
 } = flightDetailsControllers;
 
 router.get("/", getFlightDetails);
+router.get("/:id", getFlightDetailsById);
 router.post("/", createFlightDetails);
+router.update("/:id", updateFlightDetails);
+router.delete("/:id", deleteFlightDetails);
 
 module.exports = router;

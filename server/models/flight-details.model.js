@@ -4,7 +4,8 @@ let Schema = mongoose.Schema;
 let FlightDetails = new Schema(
   {
     flightCode: {
-      type: String
+      type: String,
+      required: [true, "flightCode is required"]
     },
     flightProvider: {
       type: String
@@ -29,6 +30,7 @@ let FlightDetails = new Schema(
     },
     status: {
       type: String,
+      required: [true, "status is required"],
       enum: ["LANDED", "ON SCHEDULE", "DELAYED"]
     }
   },
