@@ -34,6 +34,7 @@ let FlightDetails = new Schema(
     status: {
       type: String,
       required: [true, "status is required"],
+      uppercase: true,
       enum: ["LANDED", "ON SCHEDULE", "DELAYED"]
     }
   },

@@ -8,7 +8,6 @@ import { selectFlightsList } from "../../redux/flight-details/flight-details.sel
 
 const FlightList = ({ flightsList }) => (
   <div>
-    <h2>Flight List</h2>
     {flightsList.map(flight => (
       <FlightCard key={flight._id} flight={flight} />
     ))}

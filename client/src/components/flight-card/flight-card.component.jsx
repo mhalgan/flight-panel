@@ -2,6 +2,12 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import Divider from "@material-ui/core/Divider";
+
+import FlightStatus from "../flight-status/flight-status.component";
+import useStyles from "./flight-card.styles";
 
 const FlightCard = ({ flight }) => {
   const {
@@ -12,35 +18,57 @@ const FlightCard = ({ flight }) => {
     destinationPortName,
     destinationPortCode,
     scheduledArrival,
+    newScheduledArrival,
     status
   } = flight;
+  const classes = useStyles();
 
   return (
-    <Card>
+    <Card className={classes.card}>
       <CardContent>
         <Grid container>
-          <Grid item xs={2}>
-            <span>{scheduledArrival}</span>
+          <Grid item sm={2} xs={6}>
+            <span
+              className={
+                newScheduledArrival
+                  ? classes.delayedArrival
+                  : classes.scheduledTime
+              }
+            >
+              {scheduledArrival}
+            </span>
+            &nbsp;
+            <span className={classes.scheduledTime}>{newScheduledArrival}</span>
           </Grid>
-          <Grid item xs={2}>
+
+          <Grid item sm={2} xs={6}>
+            <span></span>
+            <Divider orientation="vertical" className={classes.divider} />
             <div>
-              <span>{sourcePortName}</span> &nbsp;
-              <span>{sourcePortCode}</span>
+              <div className={classes.bold}>
+                <span>{sourcePortName}</span> &nbsp;
+                <span>{sourcePortCode}</span>
+              </div>
+              <div>
+                <span>{flightCode}</span> &nbsp;
+                <span>{flightProvider}</span>
+              </div>
             </div>
+          </Grid>
+
+          <Grid item sm={3} xs={4}>
+            <FlightStatus status={status} />
+          </Grid>
+          <Grid item sm={2} xs={4}>
+            <span></span>
+            <Divider orientation="vertical" className={classes.divider} />
             <div>
-              <span>{flightCode}</span> &nbsp;
-              <span>{flightProvider}</span>
+              <span>{destinationPortName}</span> &nbsp;
+              <span>{destinationPortCode}</span>
             </div>
           </Grid>
-          <Grid item xs={2}>
-            <span>{status}</span>
-          </Grid>
-          <Grid item xs={2}>
-            <span>{destinationPortName}</span> &nbsp;
-            <span>{destinationPortCode}</span>
-          </Grid>
-          <Grid item xs={4}>
-            <span>More Details -></span>
+          <Grid item sm={3} xs={4} className={classes.moreDetails}>
+            <Button endIcon={<ArrowForwardIcon />}>More Details</Button>
           </Grid>
         </Grid>
       </CardContent>
