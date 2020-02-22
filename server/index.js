@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 
-const errorHandler = require('./middlewares/error-handler.middle')
+const errorHandler = require("./middlewares/error-handler.middle");
 const routes = require("./routes");
 const config = require("./config");
 const db = require("./db");
@@ -27,14 +27,18 @@ app.use(
 app.use("/api", routes);
 
 // add the error handler after the routes
-app.use(errorHandler)
+app.use(errorHandler);
 
 db.connect()
-  .then(function() {
-    app.listen(port, () => {
+  .then(() => {
+    app.listen(port, error => {
+      if (error) {
+        console.log(error);
+        return 1;
+      }
       console.log(`Server listening on port ${port}`);
     });
   })
-  .catch(function(error) {
+  .catch(error => {
     console.error(error);
   });

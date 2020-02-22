@@ -8,7 +8,8 @@ let FlightDetails = new Schema(
       required: [true, "flightCode is required"]
     },
     flightProvider: {
-      type: String
+      type: String,
+      required: [true, "flightProvider is required"]
     },
     sourcePortName: {
       type: String
@@ -23,10 +24,12 @@ let FlightDetails = new Schema(
       type: String
     },
     scheduledArrival: {
-      type: Date
+      type: Date,
+      required: [true, "scheduledArrival is required"]
     },
     scheduledDeparture: {
-      type: Date
+      type: Date,
+      required: [true, "scheduledDeparture is required"]
     },
     status: {
       type: String,
