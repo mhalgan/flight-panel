@@ -6,13 +6,16 @@ const flightDetailsControllers = require("../controllers/flight-details.controll
 const {
   createFlightDetails,
   getFlightDetailsById,
+  getFlightDetailsStatus,
   getFlightDetails,
   updateFlightDetails,
   deleteFlightDetails
 } = flightDetailsControllers;
 
 router.get("/", getFlightDetails);
+router.get("/status", getFlightDetailsStatus);
 router.get("/:id", getFlightDetailsById);
+
 router.post("/", createFlightDetails);
 router.put("/:id", updateFlightDetails);
 router.delete("/:id", deleteFlightDetails);

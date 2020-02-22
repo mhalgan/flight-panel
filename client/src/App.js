@@ -1,5 +1,5 @@
 import React from "react";
-import FlightPanel from "./pages/flight-panel.component";
+import FlightPanel from "./pages/flight-panel/flight-panel.component";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 

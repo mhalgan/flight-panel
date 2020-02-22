@@ -10,7 +10,7 @@ axios.defaults.baseURL = "http://localhost:5000/api";
 
 export function* fetchFlightDetailsAsync() {
   try {
-    const response = yield axios.get("/flight-details/123");
+    const response = yield axios.get("/flight-details");
     yield put(fetchFlightDetailsSuccess(response.data));
   } catch (error) {
     console.error(error);

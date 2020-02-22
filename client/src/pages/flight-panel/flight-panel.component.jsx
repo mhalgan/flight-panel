@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchFlightDetailsStart } from "../redux/flight-details/flight-details.actions.js";
+import { fetchFlightDetailsStart } from "../../redux/flight-details/flight-details.actions.js";
 
 const FlightPanel = ({ fetchFlightDetailsStart }) => {
   useEffect(() => {

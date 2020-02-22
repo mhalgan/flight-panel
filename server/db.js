@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const seeder = require("mongoose-seed");
 
-const flightDetailsModel = require("./models/flight-details.model");
-const flightDetailsData = require("./models/flight-details.data");
+const flightDetailsModel = require("./models/flight-details/flight-details.model");
+const flightDetailsData = require("./models/flight-details/flight-details.data");
 
 const config = require("./config");
 

@@ -1,4 +1,4 @@
-const flightDetailsModel = require("../models/flight-details.model");
+const flightDetailsModel = require("../models/flight-details/flight-details.model");
 
 const createFlightDetails = async (req, res, next) => {
   try {
@@ -32,6 +32,10 @@ const getFlightDetailsById = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+const getFlightDetailsStatus = (req, res, next) => {
+  return res.status(200).json({ status: ["LANDED", "ON SCHEDULE", "DELAYED"] });
 };
 
 const updateFlightDetails = async (req, res, next) => {
@@ -74,6 +78,7 @@ const deleteFlightDetails = async (req, res, next) => {
 module.exports = {
   createFlightDetails,
   getFlightDetailsById,
+  getFlightDetailsStatus,
   getFlightDetails,
   updateFlightDetails,
   deleteFlightDetails
