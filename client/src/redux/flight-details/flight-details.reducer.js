@@ -1,8 +1,8 @@
 import FlightDetailsActionTypes from "./flight-details.types";
 
 const INITIAL_STATE = {
-  loading: false,
-  flightDetails: []
+  isFetching: false,
+  flights: []
 };
 
 const flightDetailsReducer = (state = INITIAL_STATE, action) => {
@@ -10,7 +10,20 @@ const flightDetailsReducer = (state = INITIAL_STATE, action) => {
     case FlightDetailsActionTypes.FETCH_FLIGHT_DETAILS_START:
       return {
         ...state,
-        loading: true
+        isFetching: true
+      };
+    case FlightDetailsActionTypes.FETCH_FLIGHT_DETAILS_SUCCESS:
+      return {
+        ...state,
+        isFetching: true,
+        flights: action.payload,
+        errorMessage: null
+      };
+    case FlightDetailsActionTypes.FETCH_FLIGHT_DETAILS_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errorMessage: action.payload
       };
     default:
       return state;
