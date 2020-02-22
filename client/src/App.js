@@ -1,4 +1,5 @@
 import React from "react";
+import FlightPanel from "./pages/flight-panel.component";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 
@@ -7,7 +8,7 @@ function App() {
     <div>
       <CssBaseline />
       <Container>
-        <p>Hello</p>
+        <FlightPanel />
       </Container>
     </div>
   );

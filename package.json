@@ -20,5 +20,6 @@
   "homepage": "https://github.com/mhalgan/inflight-assignment#readme",
   "devDependencies": {
     "concurrently": "^5.1.0"
-  }
+  },
+  "dependencies": {}
 }
