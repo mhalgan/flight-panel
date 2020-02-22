@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   mongo:
@@ -16,10 +16,11 @@ services:
     build:
       context: .
       args:
-        - NODE_ENV=development
+        - NODE_ENV=production
     working_dir: /opt/inflight-assignment
     ports:
-      - 80:5000
+      - 5000:5000
+      - 3000:3000
     depends_on:
       - mongo
 
