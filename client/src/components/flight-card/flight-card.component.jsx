@@ -5,11 +5,15 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
+
+import { connect } from "react-redux";
+import { showModal } from "../../redux/modal/modal.actions";
 
 import FlightStatus from "../flight-status/flight-status.component";
 import useStyles from "./flight-card.styles";
 
-const FlightCard = ({ flight }) => {
+const FlightCard = ({ flight, showModal }) => {
   const {
     flightCode,
     flightProvider,
@@ -40,7 +44,6 @@ const FlightCard = ({ flight }) => {
             &nbsp;
             <span className={classes.scheduledTime}>{newScheduledArrival}</span>
           </Grid>
-
           <Grid item sm={2} xs={6}>
             <span></span>
             <Divider orientation="vertical" className={classes.divider} />
@@ -49,26 +52,30 @@ const FlightCard = ({ flight }) => {
                 <span>{sourcePortName}</span> &nbsp;
                 <span>{sourcePortCode}</span>
               </div>
-              <div>
+              <Typography variant="caption">
                 <span>{flightCode}</span> &nbsp;
                 <span>{flightProvider}</span>
-              </div>
+              </Typography>
             </div>
           </Grid>
-
           <Grid item sm={3} xs={4}>
             <FlightStatus status={status} />
           </Grid>
           <Grid item sm={2} xs={4}>
             <span></span>
             <Divider orientation="vertical" className={classes.divider} />
-            <div>
+            <Typography variant="caption">
               <span>{destinationPortName}</span> &nbsp;
               <span>{destinationPortCode}</span>
-            </div>
+            </Typography>
           </Grid>
           <Grid item sm={3} xs={4} className={classes.moreDetails}>
-            <Button endIcon={<ArrowForwardIcon />}>More Details</Button>
+            <Button
+              endIcon={<ArrowForwardIcon />}
+              onClick={() => showModal(flight)}
+            >
+              More Details
+            </Button>
           </Grid>
         </Grid>
       </CardContent>
@@ -76,4 +83,8 @@ const FlightCard = ({ flight }) => {
   );
 };
 
-export default FlightCard;
+const mapDispatchToProps = dispatch => ({
+  showModal: flight => dispatch(showModal(flight))
+});
+
+export default connect(null, mapDispatchToProps)(FlightCard);

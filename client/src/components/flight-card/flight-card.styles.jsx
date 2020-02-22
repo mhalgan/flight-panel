@@ -27,8 +27,11 @@ const useStyles = makeStyles(theme => ({
     textAlign: "right",
     fontWeight: "bold",
     "& button": {
-      color: green[500],
-      textTransform: "none"
+      color: green[900],
+      textTransform: "none",
+      "& svg": {
+        color: green[500]
+      }
     }
   }
 }));

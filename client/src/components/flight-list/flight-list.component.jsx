@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import FlightCard from "../flight-card/flight-card.component";
 
 import { createStructuredSelector } from "reselect";
-import { selectFlightsList } from "../../redux/flight-details/flight-details.selectors.js";
+import { selectFlightsList } from "../../redux/flight-details/flight-details.selectors";
 
 const FlightList = ({ flightsList }) => (
   <div>
