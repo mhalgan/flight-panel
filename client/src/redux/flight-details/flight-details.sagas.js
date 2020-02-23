@@ -3,10 +3,12 @@ import axios from "axios";
 import FlightDetailsActionTypes from "./flight-details.types";
 import {
   fetchFlightDetailsSuccess,
-  fetchFlightDetailsFailure
+  fetchFlightStatusSuccess,
+  fetchFailure
 } from "./flight-details.actions";
+import config from "../../config";
 
-axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = config.apiBaseUrl;
 
 export function* fetchFlightDetailsAsync() {
   try {
@@ -14,7 +16,17 @@ export function* fetchFlightDetailsAsync() {
     yield put(fetchFlightDetailsSuccess(response.data));
   } catch (error) {
     console.error(error);
-    yield put(fetchFlightDetailsFailure(error.message));
+    yield put(fetchFailure(error.message));
+  }
+}
+
+export function* fetchFlighStatusAsync() {
+  try {
+    const response = yield axios.get("/flight-details/status");
+    yield put(fetchFlightStatusSuccess(response.data));
+  } catch (error) {
+    console.error(error);
+    yield put(fetchFailure(error.message));
   }
 }
 
@@ -25,6 +37,13 @@ export function* onFetchFlightDetailsStart() {
   );
 }
 
+export function* onFetchFlightStatusStart() {
+  yield takeLatest(
+    FlightDetailsActionTypes.FETCH_FLIGHT_STATUS_START,
+    fetchFlighStatusAsync
+  );
+}
+
 export function* flightDetailsSagas() {
-  yield all([call(onFetchFlightDetailsStart)]);
+  yield all([call(onFetchFlightDetailsStart), call(onFetchFlightStatusStart)]);
 }

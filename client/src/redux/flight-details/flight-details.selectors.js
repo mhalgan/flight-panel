@@ -3,6 +3,11 @@ import moment from "moment";
 
 const selectFlightDetails = state => state.flightDetails;
 
+export const selectFlightStatusList = createSelector(
+  [selectFlightDetails],
+  flightDetails => flightDetails.status
+);
+
 export const selectFlightsList = createSelector(
   [selectFlightDetails],
   flightDetails =>
