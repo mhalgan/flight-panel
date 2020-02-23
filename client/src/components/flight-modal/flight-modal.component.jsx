@@ -4,14 +4,12 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Fade from "@material-ui/core/Fade";
 
+import FlightForm from "../flight-form/flight-form.component";
 import { connect } from "react-redux";
 import { hideModal } from "../../redux/modal/modal.actions";
 
 import { createStructuredSelector } from "reselect";
-import {
-  selectModalShow,
-  selectModalItem
-} from "../../redux/modal/modal.selectors";
+import { selectModalShow } from "../../redux/modal/modal.selectors";
 
 import useStyles from "./flight-modal.styles";
 
@@ -26,15 +24,12 @@ const FlightModal = ({ hideModal, show }) => {
       aria-describedby="modal-description"
       open={show}
       onClose={handleClose}
-      class={classes.modal}
+      className={classes.modal}
     >
       <Fade in={show}>
         <Card className={classes.card}>
           <CardContent>
-            <h2 id="modal-title">Text in a modal</h2>
-            <p id="modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </p>
+            <FlightForm />
           </CardContent>
         </Card>
       </Fade>
@@ -43,8 +38,7 @@ const FlightModal = ({ hideModal, show }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  show: selectModalShow,
-  item: selectModalItem
+  show: selectModalShow
 });
 
 const mapDispatchToProps = dispatch => ({

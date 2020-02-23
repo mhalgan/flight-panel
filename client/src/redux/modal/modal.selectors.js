@@ -7,7 +7,7 @@ export const selectModalShow = createSelector(
   modal => modal.show
 );
 
-export const selectModalItem = createSelector(
+export const selectModalFlight = createSelector(
   [selectModal],
-  modal => modal.item
+  modal => modal.flight
 );

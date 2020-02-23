@@ -2,7 +2,7 @@ import ModalActionTypes from "./modal.types";
 
 const INITIAL_STATE = {
   show: false,
-  item: {}
+  flight: {}
 };
 
 const modalReducer = (state = INITIAL_STATE, action) => {
@@ -10,12 +10,18 @@ const modalReducer = (state = INITIAL_STATE, action) => {
     case ModalActionTypes.SHOW_MODAL:
       return {
         show: true,
-        item: action.payload
+        flight: action.payload
       };
     case ModalActionTypes.HIDE_MODAL:
       return {
-        show: false,
-        item: {}
+        ...state,
+        show: false
+      };
+
+    case ModalActionTypes.SET_FLIGHT:
+      return {
+        ...state,
+        flight: action.payload
       };
 
     default:

@@ -58,10 +58,10 @@ const FlightCard = ({ flight, showModal }) => {
               </Typography>
             </div>
           </Grid>
-          <Grid item sm={3} xs={4}>
+          <Grid item sm={3} xs={12}>
             <FlightStatus status={status} />
           </Grid>
-          <Grid item sm={2} xs={4}>
+          <Grid item sm={2} xs={6}>
             <span></span>
             <Divider orientation="vertical" className={classes.divider} />
             <Typography variant="caption">
@@ -69,7 +69,7 @@ const FlightCard = ({ flight, showModal }) => {
               <span>{destinationPortCode}</span>
             </Typography>
           </Grid>
-          <Grid item sm={3} xs={4} className={classes.moreDetails}>
+          <Grid item sm={3} xs={6} className={classes.moreDetails}>
             <Button
               endIcon={<ArrowForwardIcon />}
               onClick={() => showModal(flight)}
