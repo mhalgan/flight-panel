@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     maxWidth: "550px",
+    maxHeight: "500px",
     padding: theme.spacing(1),
     margin: theme.spacing(2),
     width: "90%",

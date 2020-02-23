@@ -3,11 +3,13 @@ import { connect } from "react-redux";
 
 import FlightModal from "../../components/flight-modal/flight-modal.component";
 import FlightList from "../../components/flight-list/flight-list.component";
-import { fetchFlightDetailsStart } from "../../redux/flight-details/flight-details.actions.js";
+import { fetchFlightDetailsStart } from "../../redux/flight-details/flight-details.actions";
+import { fetchFlightStatusStart } from "../../redux/flight-details/flight-details.actions";
 
-const FlightPanel = ({ fetchFlightDetailsStart }) => {
+const FlightPanel = ({ fetchFlightStatusStart, fetchFlightDetailsStart }) => {
   useEffect(() => {
     fetchFlightDetailsStart();
+    fetchFlightStatusStart();
   });
 
   return (
@@ -20,7 +22,8 @@ const FlightPanel = ({ fetchFlightDetailsStart }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchFlightDetailsStart: () => dispatch(fetchFlightDetailsStart())
+  fetchFlightDetailsStart: () => dispatch(fetchFlightDetailsStart()),
+  fetchFlightStatusStart: () => dispatch(fetchFlightStatusStart())
 });
 
 export default connect(null, mapDispatchToProps)(FlightPanel);

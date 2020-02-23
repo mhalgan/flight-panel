@@ -23,7 +23,7 @@ export function* fetchFlightDetailsAsync() {
 export function* fetchFlighStatusAsync() {
   try {
     const response = yield axios.get("/flight-details/status");
-    yield put(fetchFlightStatusSuccess(response.data));
+    yield put(fetchFlightStatusSuccess(response.data.status));
   } catch (error) {
     console.error(error);
     yield put(fetchFailure(error.message));

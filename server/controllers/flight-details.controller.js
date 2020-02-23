@@ -11,7 +11,9 @@ const createFlightDetails = async (req, res, next) => {
 
 const getFlightDetails = async (req, res, next) => {
   try {
-    let flightDetailsList = await flightDetailsModel.find({});
+    let flightDetailsList = await flightDetailsModel
+      .find({})
+      .sort("scheduledArrival");
     return res.status(200).json(flightDetailsList);
   } catch (error) {
     next(error);

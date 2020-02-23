@@ -35,10 +35,11 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
   const classes = useStyles();
 
   return (
-    <form className={classes.root}>
+    <form>
       <Grid container>
-        <Grid item xs="6">
+        <Grid item xs={12} sm={6}>
           <TextField
+            className={classes.input}
             label="Flight Code"
             name="flightCode"
             value={flightCode}
@@ -46,8 +47,9 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={12} sm={6}>
           <TextField
+            className={classes.input}
             label="Flight Provider"
             name="flightProvider"
             value={flightProvider}
@@ -55,8 +57,9 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={12} sm={6}>
           <TextField
+            className={classes.input}
             label="Source Port Name"
             name="sourcePortName"
             value={sourcePortName}
@@ -64,8 +67,9 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={12} sm={6}>
           <TextField
+            className={classes.input}
             label="Source Port Code"
             name="sourcePortCode"
             value={sourcePortCode}
@@ -73,8 +77,9 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={12} sm={6}>
           <TextField
+            className={classes.input}
             label="Destination Port Name"
             name="destinationPortName"
             value={destinationPortName}
@@ -82,8 +87,9 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={12} sm={6}>
           <TextField
+            className={classes.input}
             label="Destination Port Code"
             name="destinationPortCode"
             value={destinationPortCode}
@@ -91,8 +97,9 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs="12">
+        <Grid item xs={12}>
           <TextField
+            className={classes.input}
             label="Scheduled Arrival"
             name="scheduledArrival"
             value={scheduledArrival}
@@ -100,8 +107,8 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs="12">
-          <FormControl>
+        <Grid item xs={12}>
+          <FormControl className={classes.input}>
             <InputLabel id="status">Status</InputLabel>
             <Select
               labelId="Status"
@@ -109,9 +116,13 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
               value={status}
               onChange={handleChange}
             >
-              {statusList.map(status => (
-                <MenuItem value={status}>status</MenuItem>
-              ))}
+              {statusList.map((status, index) => {
+                return (
+                  <MenuItem key={index} value={status}>
+                    {status}
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
         </Grid>
