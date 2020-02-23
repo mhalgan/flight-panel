@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const compression = require("compression");
+const path = require("path");
 
 const errorHandler = require("./middlewares/error-handler.middle");
 const routes = require("./routes");

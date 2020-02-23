@@ -45,11 +45,12 @@ const checkEmpty = () => {
       if (flightDetailsList.length == 0) {
         console.log("Seeding flight-details data");
 
-        await seed("models/flight-details.model.js", flightDetailsData).catch(
-          error => {
-            reject(error);
-          }
-        );
+        await seed(
+          "models/flight-details/flight-details.model.js",
+          flightDetailsData
+        ).catch(error => {
+          reject(error);
+        });
       }
       resolve();
     } catch (error) {
