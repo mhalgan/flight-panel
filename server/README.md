@@ -23,31 +23,31 @@ To start the server on port 5000 (default), run the following command:
 
 ## Endpoints
 
-**POST** /api/auth/login
+1. **POST** /api/auth/login
 
 _Endpoint that provides access tokens to validate the requests in all other endpoints_
 
-**GET** /api/flight-details
+2. **GET** /api/flight-details
 
 _Get a list with all flight details in database_
 
-**GET** /api/flight-details/:id
+3. **GET** /api/flight-details/:id
 
 _Get the flight details specified by the id_
 
-**GET** /api/flight-details/status
+4. **GET** /api/flight-details/status
 
 _Get the possible status (LANDED | ON SCHEDULE | DELAYED)_
 
-**POST** /api/flight-details
+5. **POST** /api/flight-details
 
 _Create a new flight details document in the database_
 
-**PUT** /api/flight-details/:id
+6. **PUT** /api/flight-details/:id
 
 _Update values in the flight details specified by the id_
 
-**DELETE** /api/flight-details/:id
+7. **DELETE** /api/flight-details/:id
 
 _Delete the flight details specified by the id_
 

@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
+const compression = require("compression");
 
 const errorHandler = require("./middlewares/error-handler.middle");
 const routes = require("./routes");
@@ -16,12 +17,22 @@ const port = process.env.PORT || config.port;
 // add middlewares
 app.use(cors());
 app.use(helmet());
+app.use(compression());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
     extended: false
   })
 );
+
+// use the Express server to serve the frontend
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+
+  app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  });
+}
 
 // add routing
 app.use("/api", routes);
