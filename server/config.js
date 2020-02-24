@@ -2,7 +2,7 @@ const config = {
   port: 5000,
   db: {
     collection: "inflight",
-    host: "node",
+    host: "mongo",
     port: "27017"
   }
 };
