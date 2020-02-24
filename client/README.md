@@ -1,14 +1,14 @@
 # Client
 
 Frontend task of Inflight Dublin Technical Assessment.
+If you want to play around with it outside docker, be sure to check the API configuration file at client/src/config.js
 
 ## Improvement points
 
-1. Confirmation dialog on delete and update
-2. FAB button to create new flight details
-3. Snackbar to show feedback
-4. Memoize some functions
-5. Create unit tests and snapshopt tests with Jest
+1. FAB button to create new flight details
+2. Snackbar to show feedback on save
+3. Memoize some functions
+4. Create unit tests and snapshopt tests with Jest
 
 ## Available Scripts
 

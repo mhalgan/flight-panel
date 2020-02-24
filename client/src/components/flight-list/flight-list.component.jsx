@@ -11,7 +11,7 @@ import {
 } from "../../redux/flight-details/flight-details.selectors";
 import WithLoading from "../loading/with-loading.component";
 
-const FlightList = ({ flightsList, isFetching }) => (
+const FlightList = ({ flightsList }) => (
   <div>
     {flightsList.map(flight => (
       <FlightCard key={flight._id} flight={flight} />
@@ -24,4 +24,4 @@ const mapStateToProps = createStructuredSelector({
   isFetching: selectIsFetching
 });
 
-export default compose(WithLoading, connect(mapStateToProps))(FlightList);
+export default compose(connect(mapStateToProps), WithLoading)(FlightList);

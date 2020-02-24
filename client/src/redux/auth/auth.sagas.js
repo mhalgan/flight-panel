@@ -4,11 +4,11 @@ import AuthActionTypes from "./auth.types";
 import { authSuccess, authFailure } from "./auth.actions";
 import config from "../../config";
 
-//axios.defaults.baseURL = config.apiBaseUrl;
+axios.defaults.baseURL = config.apiBaseUrl;
 
 export function* authAsync() {
   try {
-    const response = yield axios.post("/api/auth/login");
+    const response = yield axios.post("/auth/login");
     yield put(authSuccess(response.data.token));
   } catch (error) {
     console.error(error);
