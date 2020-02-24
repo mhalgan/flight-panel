@@ -1,6 +1,6 @@
 # inflight-assignment
 
-The solution is composed by 2 projects: client and server. Each project have its own README file with instructions.
+This solution is composed by 2 projects: **client** and **server**. Each project have its own README file with instructions.
 
 ## Installation
 

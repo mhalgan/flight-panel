@@ -1,20 +1,30 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { authStart } from "./redux/auth/auth.actions";
 import { createStructuredSelector } from "reselect";
 import { selectAuthToken } from "./redux/auth/auth.selectors";
-import FlightPanel from "./pages/flight-panel/flight-panel.component";
+
+import FlightPanelPage from "./pages/flight-panel/flight-panel.component";
+import LoginPage from "./pages/login/login.component";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 
-function App({ token, authStart }) {
-  useEffect();
-
+function App({ token }) {
   return (
     <div>
       <CssBaseline />
       <Container>
-        <FlightPanel />
+        <Switch>
+          <Route path="/login" component={LoginPage} />
+
+          <Route
+            path="/"
+            render={() =>
+              token ? <FlightPanelPage /> : <Redirect to="/login" />
+            }
+          />
+        </Switch>
       </Container>
     </div>
   );
@@ -23,8 +33,5 @@ function App({ token, authStart }) {
 const mapStateToProps = createStructuredSelector({
   token: selectAuthToken
 });
-const mapDispatchToProps = dispatch => ({
-  authStart: () => dispatch(authStart())
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

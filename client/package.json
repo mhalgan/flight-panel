@@ -1,6 +1,7 @@
 {
   "name": "inflight-assignment-client",
   "version": "0.1.0",
+  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.3",
@@ -13,6 +14,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",

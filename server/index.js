@@ -26,6 +26,9 @@ app.use(
   })
 );
 
+// add routing
+app.use("/api", routes);
+
 // use the Express server to serve the frontend
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
@@ -33,10 +36,9 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   });
-}
 
-// add routing
-app.use("/api", routes);
+  console.log("Serving React App");
+}
 
 // add the error handler after the routes
 app.use(errorHandler);

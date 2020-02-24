@@ -6,11 +6,14 @@ import FlightList from "../../components/flight-list/flight-list.component";
 import { fetchFlightDetailsStart } from "../../redux/flight-details/flight-details.actions";
 import { fetchFlightStatusStart } from "../../redux/flight-details/flight-details.actions";
 
-const FlightPanel = ({ fetchFlightStatusStart, fetchFlightDetailsStart }) => {
+const FlightPanelPage = ({
+  fetchFlightStatusStart,
+  fetchFlightDetailsStart
+}) => {
   useEffect(() => {
     fetchFlightDetailsStart();
     fetchFlightStatusStart();
-  });
+  }, [fetchFlightDetailsStart, fetchFlightStatusStart]);
 
   return (
     <div>
@@ -26,4 +29,4 @@ const mapDispatchToProps = dispatch => ({
   fetchFlightStatusStart: () => dispatch(fetchFlightStatusStart())
 });
 
-export default connect(null, mapDispatchToProps)(FlightPanel);
+export default connect(null, mapDispatchToProps)(FlightPanelPage);
