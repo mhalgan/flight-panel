@@ -21,8 +21,9 @@ const FlightCard = ({ flight, showModal }) => {
     sourcePortCode,
     destinationPortName,
     destinationPortCode,
-    scheduledArrival,
-    newScheduledArrival,
+    newScheduledArrivalHours,
+    scheduledArrivalHours,
+
     status
   } = flight;
   const classes = useStyles();
@@ -34,15 +35,17 @@ const FlightCard = ({ flight, showModal }) => {
           <Grid item sm={2} xs={6}>
             <span
               className={
-                newScheduledArrival
+                newScheduledArrivalHours
                   ? classes.delayedArrival
                   : classes.scheduledTime
               }
             >
-              {scheduledArrival}
+              {scheduledArrivalHours}
             </span>
             &nbsp;
-            <span className={classes.scheduledTime}>{newScheduledArrival}</span>
+            <span className={classes.scheduledTime}>
+              {newScheduledArrivalHours}
+            </span>
           </Grid>
           <Grid item sm={2} xs={6}>
             <span></span>

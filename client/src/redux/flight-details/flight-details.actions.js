@@ -16,21 +16,23 @@ export const fetchFlightStatusSuccess = flightStatusList => ({
   payload: flightStatusList
 });
 
-export const updateFlightStatusStart = () => ({
-  type: FlightDetailsActionTypes.UPDATE_FLIGHT_STATUS_START
+export const updateFlightDetailsStart = flight => ({
+  type: FlightDetailsActionTypes.UPDATE_FLIGHT_DETAILS_START,
+  payload: flight
 });
-export const updateFlightStatusSuccess = () => ({
-  type: FlightDetailsActionTypes.UPDATE_FLIGHT_STATUS_SUCCESS
-});
-
-export const deleteFlightStatusStart = () => ({
-  type: FlightDetailsActionTypes.DELETE_FLIGHT_STATUS_START
-});
-export const deleteFlightStatusSuccess = () => ({
-  type: FlightDetailsActionTypes.DELETE_FLIGHT_STATUS_SUCCESS
+export const updateFlightDetailsSuccess = () => ({
+  type: FlightDetailsActionTypes.UPDATE_FLIGHT_DETAILS_SUCCESS
 });
 
-export const asyncOperationFlightStatusFailure = errorMessage => ({
-  type: FlightDetailsActionTypes.ASYNC_OPERATION_FLIGHT_STATUS_FAILURE,
+export const deleteFlightDetailsStart = flight => ({
+  type: FlightDetailsActionTypes.DELETE_FLIGHT_DETAILS_START,
+  payload: flight
+});
+export const deleteFlightDetailsSuccess = () => ({
+  type: FlightDetailsActionTypes.DELETE_FLIGHT_DETAILS_SUCCESS
+});
+
+export const asyncOperationFlightDetailsFailure = errorMessage => ({
+  type: FlightDetailsActionTypes.ASYNC_OPERATION_FLIGHT_DETAILS_FAILURE,
   payload: errorMessage
 });

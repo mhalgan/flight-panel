@@ -14,6 +14,7 @@ export const selectFlightsList = createSelector(
     flightDetails.flights.map(flight => {
       let newFlightObject = {};
       let scheduledArrivalHours = "";
+      let scheduledDepartureHours = "";
       let newScheduledArrivalHours = "";
 
       if (flight.scheduledArrival) {
@@ -29,13 +30,21 @@ export const selectFlightsList = createSelector(
         }
       }
 
+      if (flight.scheduledDeparture) {
+        const scheduledDepartureDate = new Date(flight.scheduledDeparture);
+        scheduledDepartureHours = moment(scheduledDepartureDate).format(
+          "HH:mm"
+        );
+      }
+
       newFlightObject = {
         ...flight,
-        scheduledArrival: scheduledArrivalHours
+        scheduledArrivalHours,
+        scheduledDepartureHours
       };
 
       if (newScheduledArrivalHours) {
-        newFlightObject["newScheduledArrival"] = newScheduledArrivalHours;
+        newFlightObject["newScheduledArrivalHours"] = newScheduledArrivalHours;
       }
       return newFlightObject;
     })

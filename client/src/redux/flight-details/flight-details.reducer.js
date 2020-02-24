@@ -11,8 +11,8 @@ const flightDetailsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FlightDetailsActionTypes.FETCH_FLIGHT_DETAILS_START:
     case FlightDetailsActionTypes.FETCH_FLIGHT_STATUS_START:
-    case FlightDetailsActionTypes.UPDATE_FLIGHT_STATUS_START:
-    case FlightDetailsActionTypes.DELETE_FLIGHT_STATUS_START:
+    case FlightDetailsActionTypes.UPDATE_FLIGHT_DETAILS_START:
+    case FlightDetailsActionTypes.DELETE_FLIGHT_DETAILS_START:
       return {
         ...state,
         isFetching: true
@@ -32,15 +32,15 @@ const flightDetailsReducer = (state = INITIAL_STATE, action) => {
         errorMessage: null
       };
 
-    case FlightDetailsActionTypes.UPDATE_FLIGHT_STATUS_SUCCESS:
-    case FlightDetailsActionTypes.DELETE_FLIGHT_STATUS_SUCCESS:
+    case FlightDetailsActionTypes.UPDATE_FLIGHT_DETAILS_SUCCESS:
+    case FlightDetailsActionTypes.DELETE_FLIGHT_DETAILS_SUCCESS:
       return {
         ...state,
         isFetching: false,
         errorMessage: null
       };
 
-    case FlightDetailsActionTypes.ASYNC_OPERATION_FLIGHT_STATUS_FAILURE:
+    case FlightDetailsActionTypes.ASYNC_OPERATION_FLIGHT_DETAILS_FAILURE:
       return {
         ...state,
         isFetching: false,

@@ -17,7 +17,6 @@ import useStyles from "./flight-form.styles";
 const FlightForm = ({ flight, setFlight, statusList }) => {
   const handleChange = event => {
     const { name, value } = event.target;
-    console.log(name, value);
     setFlight({ ...flight, [name]: value });
   };
 
@@ -29,6 +28,7 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
     destinationPortName,
     destinationPortCode,
     scheduledArrival,
+    scheduledDeparture,
     status
   } = flight;
 
@@ -37,7 +37,7 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
   return (
     <form>
       <Grid container>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6}>
           <TextField
             className={classes.input}
             label="Flight Code"
@@ -47,7 +47,7 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6}>
           <TextField
             className={classes.input}
             label="Flight Provider"
@@ -57,7 +57,7 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6}>
           <TextField
             className={classes.input}
             label="Source Port Name"
@@ -67,7 +67,7 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6}>
           <TextField
             className={classes.input}
             label="Source Port Code"
@@ -77,7 +77,7 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6}>
           <TextField
             className={classes.input}
             label="Destination Port Name"
@@ -87,7 +87,7 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6}>
           <TextField
             className={classes.input}
             label="Destination Port Code"
@@ -97,12 +97,22 @@ const FlightForm = ({ flight, setFlight, statusList }) => {
             disabled
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <TextField
             className={classes.input}
             label="Scheduled Arrival"
             name="scheduledArrival"
             value={scheduledArrival}
+            onChange={handleChange}
+            disabled
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            className={classes.input}
+            label="Scheduled Departure"
+            name="scheduledDeparture"
+            value={scheduledDeparture}
             onChange={handleChange}
             disabled
           />

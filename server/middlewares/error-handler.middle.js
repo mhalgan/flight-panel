@@ -6,7 +6,7 @@ module.exports = function errorHandler(err, req, res, next) {
       case "ValidationError":
         return res.status(422).json({ error: err.message });
       case "CastError":
-        return res.status(404).json();
+        return res.status(422).json({ error: err.message });
       case "MongoError":
         switch (err.codeName) {
           case "ImmutableField":

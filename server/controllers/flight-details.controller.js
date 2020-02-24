@@ -43,7 +43,6 @@ const getFlightDetailsStatus = (req, res, next) => {
 const updateFlightDetails = async (req, res, next) => {
   try {
     let id = req.params.id;
-
     let flightDetails = await flightDetailsModel.findByIdAndUpdate(
       id,
       req.body,
@@ -56,6 +55,7 @@ const updateFlightDetails = async (req, res, next) => {
 
     return res.status(200).json(flightDetails);
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };
