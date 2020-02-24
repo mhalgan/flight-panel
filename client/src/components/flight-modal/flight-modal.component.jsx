@@ -37,6 +37,16 @@ const FlightModal = ({
     hideModal();
   };
 
+  const handleDelete = () => {
+    deleteFlight(flight);
+    hideModal();
+  };
+
+  const handleSave = () => {
+    updateFlight(flight);
+    hideModal();
+  };
+
   return (
     <Modal
       aria-labelledby="modal-title"
@@ -53,14 +63,18 @@ const FlightModal = ({
             </Typography>
             <FlightForm />
           </CardContent>
-          <CardActions>
-            <Button onClick={handleClose} variant="contained">
+          <CardActions className={classes.actions}>
+            <Button className={classes.button} onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="contained" onClick={() => deleteFlight(flight)}>
+            <Button color="secondary" onClick={handleDelete}>
               Delete
             </Button>
-            <Button variant="contained" onClick={() => updateFlight(flight)}>
+            <Button
+              className={classes.button}
+              variant="contained"
+              onClick={handleSave}
+            >
               Save
             </Button>
           </CardActions>

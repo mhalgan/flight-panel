@@ -8,11 +8,17 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     maxWidth: "550px",
-    maxHeight: "500px",
+    maxHeight: "470px",
     padding: theme.spacing(1),
     margin: theme.spacing(2),
     width: "90%",
     height: "90%"
+  },
+  actions: {
+    display: "flex"
+  },
+  button: {
+    marginLeft: "auto"
   }
 }));
 

@@ -1,4 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Client
+
+Frontend task of Inflight Dublin Technical Assessment.
+
+## Improvement points
+
+1. Confirmation dialog on delete and update
+2. FAB button to create new flight details
+3. Snackbar to show feedback
+4. Memoize some functions
+5. Create unit tests and snapshopt tests with Jest
 
 ## Available Scripts
 

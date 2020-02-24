@@ -8,6 +8,11 @@ export const selectFlightStatusList = createSelector(
   flightDetails => flightDetails.status
 );
 
+export const selectIsFetching = createSelector(
+  [selectFlightDetails],
+  flightDetails => flightDetails.isFetching
+);
+
 export const selectFlightsList = createSelector(
   [selectFlightDetails],
   flightDetails =>
