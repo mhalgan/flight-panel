@@ -12,12 +12,12 @@ import {
 } from "./flight-details.actions";
 import config from "../../config";
 
-axios.defaults.baseURL = config.apiBaseUrl;
+//axios.defaults.baseURL = config.apiBaseUrl;
 
 export function* fetchFlightDetailsAsync() {
   const token = yield select(selectAuthToken);
   try {
-    const response = yield axios.get("/flight-details", {
+    const response = yield axios.get("/api/flight-details", {
       headers: { Authorization: token }
     });
     yield put(fetchFlightDetailsSuccess(response.data));
@@ -30,7 +30,7 @@ export function* fetchFlightDetailsAsync() {
 export function* fetchFlighStatusAsync() {
   const token = yield select(selectAuthToken);
   try {
-    const response = yield axios.get("/flight-details/status", {
+    const response = yield axios.get("/api/flight-details/status", {
       headers: { Authorization: token }
     });
     yield put(fetchFlightStatusSuccess(response.data.status));
@@ -44,7 +44,7 @@ export function* updateFlighDetailsAsync({ payload }) {
   const token = yield select(selectAuthToken);
   try {
     const id = payload._id;
-    yield axios.put(`/flight-details/${id}`, payload, {
+    yield axios.put(`/api/flight-details/${id}`, payload, {
       headers: { Authorization: token }
     });
     yield put(updateFlightDetailsSuccess());
@@ -59,7 +59,7 @@ export function* deleteFlighDetailsAsync({ payload }) {
   const token = yield select(selectAuthToken);
   try {
     const id = payload._id;
-    yield axios.delete(`/flight-details/${id}`, {
+    yield axios.delete(`/api/flight-details/${id}`, {
       headers: { Authorization: token }
     });
     yield put(deleteFlightDetailsSuccess());
