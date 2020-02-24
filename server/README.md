@@ -24,7 +24,7 @@ To start the server in dev mode on port 5000 (default), run the following comman
 To start the server in production mode on port 5000 (default), run the following command:
 
 ```
-  yarn start
+  yarn server
 ```
 
 ## Endpoints
