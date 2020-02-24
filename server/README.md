@@ -15,7 +15,13 @@ Run the following command to get all the packages and dependencies:
   yarn
 ```
 
-To start the server on port 5000 (default), run the following command:
+To start the server in dev mode on port 5000 (default), run the following command:
+
+```
+  yarn start
+```
+
+To start the server in production mode on port 5000 (default), run the following command:
 
 ```
   yarn start
