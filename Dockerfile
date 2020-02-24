@@ -26,4 +26,4 @@ RUN yarn && \
 
 COPY ./server ./
 
-CMD ["yarn", "run"]
+CMD ["yarn", "server"]
