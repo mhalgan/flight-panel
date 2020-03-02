@@ -12,9 +12,9 @@ import Container from "@material-ui/core/Container";
 
 function App({ token }) {
   return (
-    <div>
+    <React.Fragment>
       <CssBaseline />
-      <Container>
+      <Container component="main">
         <Switch>
           <Route path="/login" component={LoginPage} />
 
@@ -26,7 +26,7 @@ function App({ token }) {
           />
         </Switch>
       </Container>
-    </div>
+    </React.Fragment>
   );
 }
 
