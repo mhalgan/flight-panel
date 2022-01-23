@@ -1,5 +1,5 @@
 {
-  "name": "inflight-assignment",
+  "name": "flight-panel",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mhalgan/inflight-assignment.git"
+    "url": "git+https://github.com/mhalgan/flight-panel.git"
   },
   "author": "mhalgan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mhalgan/inflight-assignment/issues"
+    "url": "https://github.com/mhalgan/flight-panel/issues"
   },
-  "homepage": "https://github.com/mhalgan/inflight-assignment#readme",
+  "homepage": "https://github.com/mhalgan/flight-panel#readme",
   "devDependencies": {
     "concurrently": "^5.1.0"
   },

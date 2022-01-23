@@ -5,7 +5,7 @@ services:
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_DATABASE: inflight
+      MONGO_INITDB_DATABASE: flight-panel
     volumes:
       - mongodb:/data/db
       - mongodb_config:/data/configdb

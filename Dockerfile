@@ -1,6 +1,6 @@
 FROM node:10
 
-ARG APP_NAME=inflight-assignment
+ARG APP_NAME=flight-panel
 
 ENV NODE_ENV=production
 ENV PORT=5000

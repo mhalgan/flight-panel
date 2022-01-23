@@ -1,5 +1,5 @@
 {
-  "name": "inflight-assignment-server",
+  "name": "flight-panel-server",
   "version": "1.0.0",
   "description": "Assignment REST API",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mhalgan/inflight-assignment.git"
+    "url": "git+https://github.com/mhalgan/flight-panel.git"
   },
   "author": "mhalgan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mhalgan/inflight-assignment/issues"
+    "url": "https://github.com/mhalgan/flight-panel/issues"
   },
-  "homepage": "https://github.com/mhalgan/inflight-assignment#readme",
+  "homepage": "https://github.com/mhalgan/flight-panel#readme",
   "devDependencies": {
     "nodemon": "^2.0.2"
   },

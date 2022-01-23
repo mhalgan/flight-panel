@@ -1,6 +1,6 @@
 # Server
 
-Backend task of Inflight Dublin Technical Assessment.
+Backend of Flight Panel.
 
 1. To change the database location, edit the config.js file.
 2. I was not confortable leaving all the routes open, so I created a small auth-guard to secure the endpoints behind JWT validation.
@@ -8,6 +8,8 @@ Backend task of Inflight Dublin Technical Assessment.
 4. The .env file with my encryption keys was commited to the repository for demonstrantion purposes. In the real world it would be included in the .gitignore file.
 
 ## Installation
+
+**Before running, please make sure to add your public and private keys to the .env file!**
 
 Run the following command to get all the packages and dependencies:
 

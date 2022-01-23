@@ -1,6 +1,6 @@
 # Client
 
-Frontend task of Inflight Dublin Technical Assessment.
+Frontend Flight Panel.
 If you want to play around with it outside docker, be sure to check the API configuration file at client/src/config.js
 
 ## Improvement points

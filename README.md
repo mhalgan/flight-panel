@@ -1,8 +1,10 @@
-# inflight-assignment
+# flight-panel
 
-This solution is composed by 2 projects: **client** and **server**. Each project have its own README file with instructions.
+This solution is composed by 2 projects: **client** and **server**. Each project has its own README file with instructions.
 
 ## Installation
+
+**Before running, please make sure to add your public and private keys to the /server/.env file!**
 
 To start the project in Docker, just run:
 
